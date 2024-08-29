@@ -1,0 +1,12 @@
+# Arquivo de configuração
+spring:
+  application:
+    name: League_of_Legends-AI-Chatbot
+  datasource:
+    url: jdbc:h2:mem:nadegas
+    driver-class-name: org.h2.Driver
+    username: chupeta
+    password: ''
+  h2:
+    console:
+      enabled: true
