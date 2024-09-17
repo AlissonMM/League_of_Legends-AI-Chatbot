@@ -1,6 +1,6 @@
 package com.goblenstudios.League_of_Legends_AI_Chatbot.domain.model;
 
-public record Champions(
+public record Champion(
     Long id,
     String name,
     String role,
@@ -8,9 +8,6 @@ public record Champions(
     String imageUrl
 
 ){
-//            public void teste(){
-//
-//            }
 }
 
 
