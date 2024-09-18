@@ -18,6 +18,8 @@ public class ChampionsJdbcRepository implements ChampionsRepository {
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper<Champion> championsRowMapper;
 
+
+    // Pega os valores do BD e lança nas variáveis aqui do projeto
     public ChampionsJdbcRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.championsRowMapper = (rs, rowNum) -> new Champion(
@@ -37,7 +39,7 @@ public class ChampionsJdbcRepository implements ChampionsRepository {
     @Override
     public Optional<Champion> findById(Long id) {
         String sql = "SELECT * FROM CHAMPIONS WHERE ID = ?";
-        List<Champion> champions = jdbcTemplate.query(sql, championsRowMapper, id);
-        return champions.stream().findFirst();
+        Champion champion = jdbcTemplate.queryForObject(sql, championsRowMapper, id);
+        return Optional.ofNullable(champion);
     }
 }
